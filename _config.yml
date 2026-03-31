@@ -1,0 +1,30 @@
+title: "ACUTE Lab"
+description: "ACoUstic and Tactile Engineering — Research Laboratory, University of Iceland"
+url: "https://acute-lab.github.io"
+baseurl: ""
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - "*.sh"
+  - .DS_Store
+  - lancedb/
+  - mnt/
+  - preview.html
+  - ACUTE_preview_images.html
+  - ACUTE_inner_pages.html
+  - CLAUDE.md
+  - .github/
+  - vendor/
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

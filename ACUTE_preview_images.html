@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ACUTE Research Laboratories — Enriched Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --bg-dark:     #0D1B2F;
+      --bg-surface:  #f5f2ed;
+      --bg-alt:      #eceae4;
+      --text:        #1B1B27;
+      --text-muted:  #5C5855;
+      --text-light:  #EDE8DF;
+      --text-dim:    #9C9790;
+      --accent:      #ff8000;
+      --accent-pale: #ffe0b3;
+      --border:      #D6D1C7;
+      --white:       #ffffff;
+      --font-display:'Space Grotesk', sans-serif;
+      --font-body:   'Inter', sans-serif;
+      --font-mono:   'DM Mono', monospace;
+      --max-w: 1200px;
+      --ease: 220ms ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); font-size: 1rem; line-height: 1.75; color: var(--text); background: var(--white); }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    h1,h2,h3,h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); }
+    h3 { font-size: 1.125rem; }
+    p  { margin-bottom: 1.1em; }
+    p:last-child { margin-bottom: 0; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+    .section-label { display: inline-block; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.9rem; }
+
+    /* ── NAV ────────────────────────────────────────────────── */
+    .site-header { position: sticky; top: 0; z-index: 100; background: var(--bg-dark); border-bottom: 3px solid var(--accent); }
+    .site-header__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .site-logo img { height: 60px; width: auto; display: block; }
+    .site-nav__list  { display: flex; gap: 2.5rem; }
+    .site-nav__link  { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(237,232,223,0.5); transition: color var(--ease); }
+    .site-nav__link:hover, .site-nav__link.is-active { color: var(--white); }
+    .site-nav__link.is-active::after { content: ''; display: block; height: 1px; background: var(--accent); margin-top: 3px; }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(13,27,47,0.95) 0%, rgba(13,27,47,0.75) 55%, rgba(13,27,47,0.45) 100%);
+    }
+    .hero__inner { position: relative; z-index: 2; padding: 7rem 2rem 6rem; max-width: calc(var(--max-w) / 2 + 2rem); margin-left: max(2rem, calc(50vw - 600px)); }
+    .hero__label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.8rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero__label::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+    .hero__title { font-family: var(--font-display); font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; color: var(--white); margin-bottom: 1.8rem; }
+    .hero__title em { color: var(--accent); font-style: normal; }
+    .hero__sub { font-size: 1.05rem; font-weight: 300; color: rgba(237,232,223,0.6); margin-bottom: 2.5rem; max-width: 440px; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .btn { display: inline-flex; align-items: center; padding: 0.75rem 1.75rem; border-radius: 3px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; transition: all var(--ease); cursor: pointer; border: 2px solid transparent; }
+    .btn--primary { background: var(--accent); color: var(--white); border-color: var(--accent); }
+    .btn--primary:hover { background: #e67300; border-color: #e67300; }
+    .btn--ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.3); }
+    .btn--ghost:hover { border-color: var(--accent); color: var(--accent-pale); }
+
+    /* ── ABOUT ──────────────────────────────────────────────── */
+    .about { padding: 7rem 0; background: var(--white); border-bottom: 1px solid var(--border); }
+    .about__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+    .about__intro h2 { margin-top: 0.5rem; }
+    .about__body { font-size: 1rem; color: var(--text-muted); line-height: 1.8; }
+    .about__body p { margin-bottom: 1.3rem; }
+    .about__body strong { color: var(--text); }
+
+    /* ── HIGHLIGHTS ─────────────────────────────────────────── */
+    .highlights { padding: 7rem 0; background: var(--bg-surface); }
+    .highlights__header { margin-bottom: 3.5rem; }
+    .highlights__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .highlight-card { background: var(--white); display: flex; flex-direction: column; transition: background var(--ease); }
+    .highlight-card:hover { background: var(--bg-alt); }
+    .highlight-card__img-wrap { height: 200px; overflow: hidden; flex-shrink: 0; }
+    .highlight-card__img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms ease; display: block; }
+    .highlight-card:hover .highlight-card__img { transform: scale(1.04); }
+    .highlight-card__body { padding: 1.8rem 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; }
+    .highlight-card__number { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 0.6rem; }
+    .highlight-card h3 { font-size: 1rem; margin-bottom: 0.6rem; color: var(--text); }
+    .highlight-card p  { font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; flex: 1; }
+    .highlight-card__link { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); transition: letter-spacing var(--ease); }
+    .highlight-card:hover .highlight-card__link { letter-spacing: 0.15em; }
+
+    /* ── STATS ──────────────────────────────────────────────── */
+    .stats { background: var(--bg-dark); padding: 5rem 0; border-top: 3px solid var(--accent); }
+    .stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .stats__item { padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.1); }
+    .stats__number { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 700; color: var(--accent); display: block; line-height: 1; margin-bottom: 0.5rem; }
+    .stats__label  { font-size: 0.82rem; color: rgba(237,232,223,0.5); line-height: 1.5; }
+
+    /* ── GALLERY STRIP ──────────────────────────────────────── */
+    .gallery { padding: 6rem 0; background: var(--white); border-top: 1px solid var(--border); }
+    .gallery__header { margin-bottom: 2.5rem; }
+    .gallery__strip { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.3fr; gap: 6px; height: 340px; }
+    .gallery__item { overflow: hidden; border-radius: 4px; cursor: pointer; position: relative; }
+    .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms ease; display: block; }
+    .gallery__item:hover img { transform: scale(1.05); }
+    .gallery__caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem 1rem 0.8rem; background: linear-gradient(transparent, rgba(13,27,47,0.8)); font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); opacity: 0; transition: opacity var(--ease); }
+    .gallery__item:hover .gallery__caption { opacity: 1; }
+
+    /* ── FEATURE SPLITS ─────────────────────────────────────── */
+    .feature { background: var(--white); }
+    .feature__row { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; border-bottom: 1px solid var(--border); }
+    .feature__row--reverse { direction: rtl; }
+    .feature__row--reverse > * { direction: ltr; }
+    .feature__img-col { overflow: hidden; position: relative; }
+    .feature__img-col img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .feature__text-col { padding: 4rem 5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; }
+    .feature__text-col h3 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); }
+    .feature__text-col p { font-size: 0.97rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 0; }
+    .feature__meta { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--text-dim); }
+    .feature__link { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); align-self: flex-start; transition: opacity var(--ease); }
+    .feature__link:hover { opacity: 0.7; }
+
+    /* ── TEAM ───────────────────────────────────────────────── */
+    .team { padding: 7rem 0; background: var(--bg-surface); }
+    .team__header { margin-bottom: 3.5rem; }
+    .team__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; }
+    .person-card { display: flex; flex-direction: column; gap: 0.7rem; }
+    .person-card__photo-wrap { width: 100%; padding-bottom: 100%; position: relative; overflow: hidden; border-radius: 4px; background: var(--bg-alt); }
+    .person-card__photo-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; border-radius: 4px; transition: transform 400ms ease; }
+    .person-card:hover .person-card__photo-wrap img { transform: scale(1.04); }
+    .person-card__photo-placeholder { position: absolute; inset: 0; border-radius: 4px; background: var(--bg-dark); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); text-align: center; }
+    .person-card__name  { font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; color: var(--text); line-height: 1.3; letter-spacing: -0.01em; }
+    .person-card__role  { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+    .person-card__links { display: flex; gap: 0.8rem; }
+    .person-card__links a { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.06em; color: var(--accent); transition: opacity var(--ease); }
+    .person-card__links a:hover { opacity: 0.7; }
+
+    /* ── PARTNERS ───────────────────────────────────────────── */
+    .partners { padding: 5rem 0; background: var(--bg-surface); border-top: 1px solid var(--border); }
+    .partners__header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 3rem; }
+    .partners__header h2 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+    .partners__groups { display: flex; flex-direction: column; gap: 3rem; }
+    .partners__group-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+    .partners__row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2.5rem; }
+    .partner-logo { display: flex; align-items: center; justify-content: center; height: 52px; padding: 0 1rem; filter: grayscale(1) opacity(0.45); transition: filter var(--ease), transform var(--ease); }
+    .partner-logo:hover { filter: grayscale(0) opacity(1); transform: scale(1.04); }
+    .partner-logo img { height: 100%; width: auto; max-width: 140px; object-fit: contain; display: block; }
+    .partner-placeholder { display: flex; align-items: center; justify-content: center; height: 52px; min-width: 110px; padding: 0 1.2rem; background: var(--white); border: 1.5px dashed var(--border); border-radius: 3px; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.08em; color: var(--text-dim); white-space: nowrap; }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    .site-footer { background: var(--bg-dark); padding-top: 5rem; border-top: 3px solid var(--accent); }
+    .site-footer__inner { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 4rem; padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .site-footer__logo img { height: 40px; width: auto; }
+    .site-footer__address { font-size: 0.82rem; color: rgba(237,232,223,0.35); line-height: 1.8; margin-top: 1.2rem; }
+    .site-footer__url { display: inline-block; margin-top: 0.8rem; font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent); }
+    .site-footer__nav ul { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
+    .site-footer__nav a { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,232,223,0.35); transition: color var(--ease); }
+    .site-footer__nav a:hover { color: var(--white); }
+    .site-footer__partners-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+    .site-footer__partners li { font-size: 0.8rem; color: rgba(237,232,223,0.35); line-height: 1.6; }
+    .site-footer__bottom { padding: 1.2rem 0; }
+    .site-footer__bottom span { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.08em; color: rgba(237,232,223,0.2); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .highlights__grid { grid-template-columns: repeat(2, 1fr); }
+      .team__grid { grid-template-columns: repeat(3, 1fr); }
+      .feature__text-col { padding: 3rem; }
+    }
+    @media (max-width: 900px) {
+      .stats__grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery__strip { grid-template-columns: repeat(3, 1fr); height: 220px; }
+      .gallery__strip .gallery__item:nth-child(4),
+      .gallery__strip .gallery__item:nth-child(5) { display: none; }
+      .feature__row { grid-template-columns: 1fr; min-height: auto; }
+      .feature__img-col { height: 300px; }
+      .about__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .site-footer__inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 640px) {
+      .highlights__grid { grid-template-columns: 1fr; }
+      .team__grid { grid-template-columns: repeat(2, 1fr); }
+      .site-footer__inner { grid-template-columns: 1fr; }
+    }
+
+    /* ── ANIMATIONS ─────────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero__label   { animation: fadeUp .6s ease both .1s; }
+      .hero__title   { animation: fadeUp .7s ease both .2s; }
+      .hero__sub     { animation: fadeUp .7s ease both .35s; }
+      .hero__actions { animation: fadeUp .7s ease both .5s; }
+    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="#" class="site-logo">
+      <img src="images/logo_alt.svg" alt="ACUTE Research Laboratories">
+    </a>
+    <nav><ul class="site-nav__list">
+      <li><a href="#" class="site-nav__link is-active">Home</a></li>
+      <li><a href="#research" class="site-nav__link">Research</a></li>
+      <li><a href="#team" class="site-nav__link">Team</a></li>
+      <li><a href="#" class="site-nav__link">Publications</a></li>
+      <li><a href="#" class="site-nav__link">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+
+<!-- ══ SECTION A — HERO ══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="images/lab_group.jpg" alt="ACUTE Lab">
+  </div>
+  <div class="hero__inner">
+    <div class="hero__label">ACoUstic and Tactile Engineering · University of Iceland</div>
+    <h1 class="hero__title">
+      We decode<br>
+      <em>the senses —</em><br>
+      and put them<br>
+      to work.
+    </h1>
+    <p class="hero__sub">Vibrotactile interfaces. Spatial audio. Room acoustics.<br>
+      Research that bridges perception science and engineering.</p>
+    <div class="hero__actions">
+      <a href="#research" class="btn btn--primary">Explore our research</a>
+      <a href="#" class="btn btn--ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__intro">
+        <span class="section-label">About the lab</span>
+        <h2>Engineering at the boundary of human perception</h2>
+      </div>
+      <div class="about__body">
+        <p>ACUTE is an interdisciplinary research group at the University of Iceland. We sit at the intersection of human perception science, engineering design, and applied acoustics.</p>
+        <p>We collaborate with prosthetics manufacturer <strong>Össur ehf.</strong>, spatial audio company <strong>Treble Technologies</strong>, and clinicians at <strong>Landspítali — National University Hospital</strong>. Funded by RANNÍS, NordForsk, and the European Union.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SECTION B — RESEARCH HIGHLIGHT CARDS ═════════════════ -->
+<section class="highlights" id="research">
+  <div class="container">
+    <div class="highlights__header">
+      <span class="section-label">Research areas</span>
+      <h2>Six interconnected themes</h2>
+    </div>
+    <div class="highlights__grid">
+
+      <article class="highlight-card">
+        <div class="highlight-card__img-wrap">
+          <img class="highlight-card__img" src="images/sensory_substitution.jpg" alt="Vibrotactile Perception">
+        </div>
+        <div class="highlight-card__body">
+          <div class="highlight-card__number">01</div>
+          <h3>Vibrotactile Perception</h3>
+          <p>Mapping the frequency, amplitude, and spatial limits of touch on the forearm and wrist.</p>
+          <span class="highlight-card__link">Read more →</span>
+        </div>
+      </article>
+
+      <article class="highlight-card">
+        <div class="highlight-card__img-wrap">
+          <img class="highlight-card__img" src="images/mannequin.jpg" alt="Prosthetic Feedback">
+        </div>
+        <div class="highlight-card__body">
+          <div class="highlight-card__number">02</div>
+          <h3>Prosthetic Feedback</h3>
+          <p>Vibrotactile sleeves that restore proprioception for transfemoral amputees.</p>
+          <span class="highlight-card__link">Read more →</span>
+        </div>
+      </article>
+
+      <article class="highlight-card">
+        <div class="highlight-card__img-wrap">
+          <img class="highlight-card__img" src="images/lab_equipment.jpg" alt="Sensory Substitution">
+        </div>
+        <div class="highlight-card__body">
+          <div class="highlight-card__number">03</div>
+          <h3>Sensory Substitution</h3>
+          <p>Devices that translate sound and vision into touch for visually and hearing-impaired users.</p>
+          <span class="highlight-card__link">Read more →</span>
+        </div>
+      </article>
+
+      <article class="highlight-card">
+        <div class="highlight-card__img-wrap">
+          <img class="highlight-card__img" src="images/kemar.jpg" alt="Spatial Audio & HRTFs">
+        </div>
+        <div class="highlight-card__body">
+          <div class="highlight-card__number">04</div>
+          <h3>Spatial Audio &amp; HRTFs</h3>
+          <p>Synthetic pinna models and machine learning to personalise 3D sound.</p>
+          <span class="highlight-card__link">Read more →</span>
+        </div>
+      </article>
+
+      <article class="highlight-card">
+        <div class="highlight-card__img-wrap">
+          <img class="highlight-card__img" src="images/room_acoustics.jpg" alt="Room Acoustics">
+        </div>
+        <div class="highlight-card__body">
+          <div class="highlight-card__number">05</div>
+          <h3>Room Acoustics</h3>
+          <p>Structure-preserving model reduction achieving 100× speedup in wave simulation.</p>
+          <span class="highlight-card__link">Read more →</span>
+        </div>
+      </article>
+
+      <article class="highlight-card">
+        <div class="highlight-card__img-wrap">
+          <img class="highlight-card__img" src="images/scan_pattern.png" alt="Attention & Perception">
+        </div>
+        <div class="highlight-card__body">
+          <div class="highlight-card__number">06</div>
+          <h3>Attention &amp; Perception</h3>
+          <p>Cross-modal foraging, visual synchrony effects, and haptic illusions.</p>
+          <span class="highlight-card__link">Read more →</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stats__item"><span class="stats__number">93%</span><span class="stats__label">Pattern recognition accuracy with sequential vibrotactile stimulation</span></div>
+      <div class="stats__item"><span class="stats__number">100×</span><span class="stats__label">Speedup in wave-based room acoustics simulation</span></div>
+      <div class="stats__item"><span class="stats__number">20</span><span class="stats__label">Pinna replicas in the open Viking HRTF Dataset v2</span></div>
+      <div class="stats__item"><span class="stats__number">500k+</span><span class="stats__label">Cochlear implant users who could benefit from vibrotactile music augmentation</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SECTION C — LAB PHOTO GALLERY STRIP ══════════════════ -->
+<section class="gallery">
+  <div class="container">
+    <div class="gallery__header">
+      <span class="section-label">Inside the lab</span>
+      <h2>Equipment &amp; environment</h2>
+    </div>
+    <div class="gallery__strip">
+
+      <figure class="gallery__item">
+        <img src="images/lab_group.jpg" alt="Lab group">
+        <figcaption class="gallery__caption">Lab Group</figcaption>
+      </figure>
+
+      <figure class="gallery__item">
+        <img src="images/kemar.jpg" alt="KEMAR + pinna replicas">
+        <figcaption class="gallery__caption">KEMAR + Pinna Replicas</figcaption>
+      </figure>
+
+      <figure class="gallery__item">
+        <img src="images/lab_equipment.jpg" alt="Lab equipment">
+        <figcaption class="gallery__caption">Vibrotactile Actuators</figcaption>
+      </figure>
+
+      <figure class="gallery__item">
+        <img src="images/lobes_mold.jpg" alt="Ear lobe molds">
+        <figcaption class="gallery__caption">Ear Molds</figcaption>
+      </figure>
+
+      <figure class="gallery__item">
+        <img src="images/spatial_audio.png" alt="Spatial Audio HRTFs">
+        <figcaption class="gallery__caption">HRTF Measurement Setup</figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SECTION D — FEATURED RESEARCH SPLITS ════════════════ -->
+<section class="feature">
+
+  <div class="feature__row">
+    <div class="feature__img-col">
+      <img src="images/sensory_substitution.jpg" alt="Haptic interfaces">
+    </div>
+    <div class="feature__text-col">
+      <span class="section-label">Haptic interfaces</span>
+      <h3>Designing touch that speaks</h3>
+      <p>Sequential vibrotactile patterns achieve 93% recognition accuracy on the forearm — nearly four times the 26% seen with simultaneous stimulation. This finding shapes the core programming logic of every wearable device we build.</p>
+      <span class="feature__meta">Yeganeh et al. · Applied Sciences 2024</span>
+      <a href="https://doi.org/10.3390/app14010043" class="feature__link" target="_blank">Read the paper →</a>
+    </div>
+  </div>
+
+  <div class="feature__row feature__row--reverse">
+    <div class="feature__img-col">
+      <img src="images/spatial_audio.png" alt="Spatial audio">
+    </div>
+    <div class="feature__text-col">
+      <span class="section-label">Spatial audio</span>
+      <h3>Your ear, rebuilt in silicone</h3>
+      <p>We 3D-scan real pinnae, alter one geometric feature at a time, cast them in silicone, and measure their acoustic fingerprint. This controlled methodology lets us isolate exactly which part of your ear shape determines where you hear sound coming from.</p>
+      <span class="feature__meta">Sumner, Riedel &amp; Unnthorsson · Cogent Engineering 2025</span>
+      <a href="https://doi.org/10.1080/23311916.2025.2536150" class="feature__link" target="_blank">Read the paper →</a>
+    </div>
+  </div>
+
+  <div class="feature__row">
+    <div class="feature__img-col">
+      <img src="images/room_acoustics.jpg" alt="Room acoustics">
+    </div>
+    <div class="feature__text-col">
+      <span class="section-label">Room acoustics</span>
+      <h3>100× faster, equally accurate</h3>
+      <p>Our structure-preserving model order reduction compresses the wave equation into a low-dimensional form that runs 100 times faster than a full simulation — without sacrificing stability at complex material boundaries. Built with Treble Technologies.</p>
+      <span class="feature__meta">Bonthu et al. · Int. J. Numerical Methods in Engineering 2026</span>
+      <a href="https://doi.org/10.1002/nme.70295" class="feature__link" target="_blank">Read the paper →</a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══ SECTION E — TEAM GRID ════════════════════════════════ -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="team__header">
+      <span class="section-label">The people</span>
+      <h2>Our team</h2>
+    </div>
+    <div class="team__grid">
+
+      <div class="person-card">
+        <div class="person-card__photo-wrap">
+          <img src="images/team/runar.jpg" alt="Rúnar Unnþórsson">
+        </div>
+        <div class="person-card__name">Rúnar Unnþórsson</div>
+        <div class="person-card__role">Principal Investigator</div>
+        <div class="person-card__links">
+          <a href="mailto:runson@hi.is">Email</a>
+          <a href="https://english.hi.is/staff/runson" target="_blank">Profile</a>
+        </div>
+      </div>
+
+      <div class="person-card">
+        <div class="person-card__photo-wrap">
+          <img src="images/team/arni.jpg" alt="Árni Kristjánsson">
+        </div>
+        <div class="person-card__name">Árni Kristjánsson</div>
+        <div class="person-card__role">Principal Investigator</div>
+        <div class="person-card__links">
+          <a href="mailto:ak@hi.is">Email</a>
+          <a href="https://english.hi.is/staff/ak" target="_blank">Profile</a>
+        </div>
+      </div>
+
+      <div class="person-card">
+        <div class="person-card__photo-wrap">
+          <img src="images/team/ivan.jpg" alt="Ivan Makarov">
+        </div>
+        <div class="person-card__name">Ivan Makarov</div>
+        <div class="person-card__role">Postdoctoral Researcher</div>
+      </div>
+
+      <div class="person-card">
+        <div class="person-card__photo-wrap">
+          <img src="images/team/nashmin.jpg" alt="Nashmin Yeganeh">
+        </div>
+        <div class="person-card__name">Nashmin Yeganeh</div>
+        <div class="person-card__role">PhD Candidate</div>
+      </div>
+
+      <div class="person-card">
+        <div class="person-card__photo-wrap">
+          <img src="images/team/mahdi.jpg" alt="Mohammadmahdi Karimi">
+        </div>
+        <div class="person-card__name">Mohammadmahdi Karimi</div>
+        <div class="person-card__role">PhD Candidate</div>
+      </div>
+
+      <div class="person-card">
+        <div class="person-card__photo-wrap">
+          <img src="images/team/jonas.jpg" alt="Jonas Karlberg">
+        </div>
+        <div class="person-card__name">Jonas Karlberg</div>
+        <div class="person-card__role">PhD Candidate</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PARTNERS -->
+<section class="partners">
+  <div class="container">
+    <div class="partners__header">
+      <div>
+        <span class="section-label">Collaboration &amp; funding</span>
+        <h2>Partners &amp; funders</h2>
+      </div>
+    </div>
+    <div class="partners__groups">
+
+      <!-- Industry partners -->
+      <div>
+        <div class="partners__group-label">Industry partners</div>
+        <div class="partners__row">
+          <a href="https://www.ossur.com" class="partner-logo" target="_blank" title="Össur ehf.">
+            <img src="images/partners/ossur.png" alt="Össur">
+          </a>
+          <a href="https://www.treble.tech" class="partner-logo" target="_blank" title="Treble Technologies">
+            <img src="images/partners/treble.png" alt="Treble Technologies">
+          </a>
+          <a href="https://www.landspitali.is" class="partner-logo" target="_blank" title="Landspítali — National University Hospital">
+            <img src="images/partners/landspitali.png" alt="Landspítali">
+          </a>
+        </div>
+      </div>
+
+      <!-- Funders -->
+      <div>
+        <div class="partners__group-label">Funders</div>
+        <div class="partners__row">
+          <a href="https://www.rannis.is" class="partner-logo" target="_blank" title="RANNÍS — Icelandic Research Fund">
+            <img src="images/partners/rannis.png" alt="RANNÍS">
+          </a>
+          <a href="https://www.hi.is" class="partner-logo" target="_blank" title="University of Iceland">
+            <img src="images/partners/hi.png" alt="University of Iceland">
+          </a>
+          <a href="https://www.nordforsk.org" class="partner-logo" target="_blank" title="NordForsk">
+            <img src="images/partners/nordforsk.jpeg" alt="NordForsk">
+          </a>
+          <a href="https://ec.europa.eu/programmes/horizon2020" class="partner-logo" target="_blank" title="EU Horizon 2020">
+            <img src="images/partners/horizon.png" alt="EU Horizon 2020">
+          </a>
+          <a href="https://www.eurocc-access.eu" class="partner-logo" target="_blank" title="EUROCC2">
+            <img src="images/partners/eurocc2.png" alt="EUROCC2">
+          </a>
+          <a href="https://www.edihiceland.is" class="partner-logo" target="_blank" title="EDIH Iceland">
+            <img src="images/partners/edih_iceland.png" alt="EDIH Iceland">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <div class="site-footer__logo">
+        <img src="images/logo_alt.svg" alt="ACUTE Research Laboratories">
+      </div>
+      <p class="site-footer__address">Faculty of Industrial Engineering,<br>Mechanical Engineering and Computer Science<br>University of Iceland<br>Hjardarhagi 2–6, 107 Reykjavík</p>
+      <a href="https://acute.hi.is" class="site-footer__url">acute.hi.is ↗</a>
+    </div>
+    <nav class="site-footer__nav"><ul>
+      <li><a href="#">Research</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Publications</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul></nav>
+    <div class="site-footer__partners">
+      <p class="site-footer__partners-label">Funded by</p>
+      <ul>
+        <li>RANNÍS — Icelandic Research Fund</li>
+        <li>RANNÍS — Technical Development Fund</li>
+        <li>NordForsk · NordicSMC</li>
+        <li>EU Horizon 2020 RAISE</li>
+        <li>EUROCC2</li>
+        <li>EDIH Iceland</li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <div class="container"><span>© 2026 ACUTE Research Laboratories, University of Iceland</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

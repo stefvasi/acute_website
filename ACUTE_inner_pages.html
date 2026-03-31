@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACUTE — Inner Pages: Research · Team · Publications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--s95:#0b0f1a;--s90:#111827;--s80:#1e2535;--s70:#2d3748;--s60:#475569;--s50:#64748b;--s40:#94a3b8;--s30:#cbd5e1;--s20:#e2e8f0;--s10:#f1f5f9;--s05:#f8fafc;--g60:#a07830;--g50:#c9a84c;--g40:#d4b466;--g10:#f7f1e3;--w:#fff;--fd:'Playfair Display',Georgia,serif;--fb:'Source Serif 4',Georgia,serif;--fm:'JetBrains Mono',monospace;--mw:1200px;--mn:820px;--e:220ms ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--fb);font-size:1.0625rem;line-height:1.75;color:var(--s90);background:var(--w)}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--fd);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,5vw,3.8rem)}h2{font-size:clamp(1.7rem,3vw,2.4rem)}h3{font-size:1.2rem}
+p{margin-bottom:1.1em}p:last-child{margin-bottom:0}strong{font-weight:600}em{font-style:italic}
+.c{max-width:var(--mw);margin:0 auto;padding:0 2rem}
+.cn{max-width:var(--mn);margin:0 auto;padding:0 2rem}
+.sl{display:inline-block;font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g50);margin-bottom:.8rem}
+.sh{position:sticky;top:0;z-index:100;background:var(--s95);border-bottom:1px solid rgba(255,255,255,.07)}
+.sh__i{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;flex-direction:column;gap:1px}
+.logo__w{font-family:var(--fd);font-size:1.35rem;font-weight:700;letter-spacing:.04em;color:var(--w)}
+.logo__s{font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g50)}
+.nav__l{display:flex;gap:2.5rem}
+.nav__a{font-family:var(--fm);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--s40);transition:color var(--e);position:relative;padding-bottom:2px}
+.nav__a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--g50);transition:width var(--e)}
+.nav__a:hover,.nav__a.act{color:var(--w)}.nav__a:hover::after,.nav__a.act::after{width:100%}
+.ph{background:var(--s95);padding:5.5rem 0 4.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.ph__in{display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:end}
+.ph h1{color:var(--w);margin-top:.5rem}
+.ph__sub{color:var(--s40);font-size:1rem;line-height:1.7;margin-top:.5rem;margin-bottom:0}
+.ip{display:flex;align-items:center;justify-content:center;background:var(--s80);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 10px)}
+.ip span{font-family:var(--fm);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.18);text-align:center;padding:.8rem;line-height:1.7}
+.ip--t{background-color:#1a1a2e}.ip--a{background-color:#0f1f1a}.ip--h{background-color:#1a120e}.ip--p{background-color:#1c1c24}.ip--x{background-color:#1f1f0e}
+.pdiv{background:var(--g50);padding:.6rem 2rem;font-family:var(--fm);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--s95);font-weight:500}
+.ra{display:grid;grid-template-columns:1fr 1fr;min-height:500px;border-bottom:1px solid var(--s10)}
+.ra.flip{direction:rtl}.ra.flip>*{direction:ltr}
+.ra__img{overflow:hidden}
+.ra__img .ip{width:100%;height:100%;min-height:500px;transition:transform 500ms ease}
+.ra:hover .ra__img .ip{transform:scale(1.04)}
+.ra__txt{padding:4rem 5rem;display:flex;flex-direction:column;justify-content:center;gap:.9rem}
+.ra__n{font-family:var(--fm);font-size:.63rem;letter-spacing:.1em;color:var(--g50)}
+.ra__txt h2{font-size:clamp(1.4rem,2.5vw,1.95rem)}
+.ra__txt p{font-size:.93rem;color:var(--s60);line-height:1.8;margin-bottom:0}
+.pl{margin-top:1.4rem;padding-top:1.1rem;border-top:1px solid var(--s10)}
+.pl__l{font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--s40);margin-bottom:.5rem}
+.pl li{font-size:.82rem;color:var(--s50);padding:.4rem 0;border-bottom:1px dashed var(--s10);line-height:1.5}
+.pl li:last-child{border-bottom:none}
+.pl a{color:var(--g50);transition:color var(--e);text-decoration:underline;text-underline-offset:2px;text-decoration-color:transparent}
+.pl a:hover{color:var(--s90);text-decoration-color:currentColor}
+.pi{padding:6rem 0;background:var(--w);border-bottom:1px solid var(--s10)}
+.pi__g{display:grid;grid-template-columns:300px 1fr;gap:5rem;align-items:start}
+.pi__ph{aspect-ratio:4/5;border-radius:6px;overflow:hidden}
+.pi__ph .ip{width:100%;height:100%;min-height:360px}
+.pi__nm{font-family:var(--fd);font-size:1.9rem;font-weight:700;margin-top:.4rem;margin-bottom:.3rem}
+.pi__ro{font-family:var(--fm);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g50);margin-bottom:1.3rem}
+.pi__bi{font-size:.95rem;color:var(--s60);line-height:1.85}
+.pi__bi p{margin-bottom:1rem}
+.pi__lk{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+.pi__btn{font-family:var(--fm);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;padding:.45rem .9rem;border:1.5px solid var(--s20);border-radius:3px;color:var(--s50);transition:all var(--e)}
+.pi__btn:hover{border-color:var(--g50);color:var(--g50)}
+.tm{padding:5.5rem 0;background:var(--s05)}
+.tm__hd{margin-bottom:2.8rem}.tm__hd h2{margin-top:.4rem}
+.tm__g{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem}
+.mc{background:var(--w);border-radius:8px;overflow:hidden;border:1px solid var(--s10);transition:box-shadow var(--e),transform var(--e)}
+.mc:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-3px)}
+.mc__ph{aspect-ratio:1;overflow:hidden}
+.mc__ph .ip{width:100%;height:100%}
+.mc__b{padding:1.3rem}
+.mc__nm{font-family:var(--fd);font-size:1rem;font-weight:600;margin-bottom:.12rem}
+.mc__ro{font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--g50);margin-bottom:.75rem}
+.mc__bi{font-size:.8rem;color:var(--s50);line-height:1.6;margin-bottom:.9rem}
+.mc__tg{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.9rem}
+.tg{font-family:var(--fm);font-size:.55rem;letter-spacing:.05em;padding:.2rem .55rem;background:var(--s10);border-radius:2px;color:var(--s50);text-transform:uppercase}
+.mc__lk{display:flex;gap:.7rem;border-top:1px solid var(--s10);padding-top:.85rem}
+.mc__lk a{font-family:var(--fm);font-size:.58rem;letter-spacing:.06em;color:var(--s40);transition:color var(--e)}
+.mc__lk a:hover{color:var(--g50)}
+.alm{padding:3.5rem 0;background:var(--w);border-top:1px solid var(--s10)}
+.al__g{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.8rem}
+.al__i{padding:.9rem;border:1px solid var(--s10);border-radius:4px}
+.al__i h4{font-size:.88rem;color:var(--s70);margin-bottom:.18rem}
+.al__i p{font-family:var(--fm);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;color:var(--s40);margin:0}
+.pb{padding:4rem 0 7rem}
+.flt{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:3rem;padding-bottom:1.8rem;border-bottom:1px solid var(--s10)}
+.fb{font-family:var(--fm);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;padding:.42rem .9rem;border-radius:3px;border:1.5px solid var(--s20);color:var(--s50);background:var(--w);cursor:pointer;transition:all var(--e)}
+.fb:hover,.fb.act{background:var(--s90);color:var(--w);border-color:var(--s90)}
+.fb.area.act{background:var(--g50);border-color:var(--g50);color:var(--s95)}
+.py{margin-bottom:3rem}
+.py__yr{font-family:var(--fd);font-size:1.9rem;font-weight:700;color:var(--s20);margin-bottom:1rem;letter-spacing:-.02em}
+.pc{display:grid;grid-template-columns:76px 1fr auto;gap:1.2rem 1.8rem;align-items:start;padding:1.4rem 0;border-bottom:1px solid var(--s10)}
+.pc:last-child{border-bottom:none}
+.pc__th{width:76px;height:76px;border-radius:4px;overflow:hidden}
+.pc__th .ip{width:100%;height:100%}
+.pc__ti{font-family:var(--fd);font-size:1rem;font-weight:600;line-height:1.35;margin-bottom:.35rem}
+.pc__ti a:hover{color:var(--g60)}
+.pc__au{font-size:.82rem;color:var(--s50);margin-bottom:.25rem;line-height:1.45}
+.pc__ve{font-size:.82rem;color:var(--s60);font-style:italic;margin-bottom:.55rem}
+.pc__tg{display:flex;gap:.35rem;flex-wrap:wrap}
+.pc__ac{display:flex;flex-direction:column;gap:.45rem;align-items:flex-end;flex-shrink:0;padding-top:.15rem}
+.db{font-family:var(--fm);font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;padding:.38rem .85rem;border-radius:3px;background:var(--s90);color:var(--w);transition:background var(--e);white-space:nowrap}
+.db:hover{background:var(--g50);color:var(--s95)}
+.pdfb{font-family:var(--fm);font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;padding:.38rem .85rem;border-radius:3px;border:1.5px solid var(--s20);color:var(--s50);transition:all var(--e);white-space:nowrap}
+.pdfb:hover{border-color:var(--s90);color:var(--s90)}
+.tg--v{background:#1a1a2e;color:#7b7bbf}.tg--p{background:#1a1a2e;color:#9b7bbf}
+.tg--s{background:#1a2e1a;color:#7bbf7b}.tg--h{background:#2e1a0e;color:#bf9b7b}
+.tg--a{background:#0e1f1a;color:#7bbfb0}.tg--x{background:#1f1f0e;color:#bfb87b}
+.sf{background:var(--s95);padding-top:5rem}
+.sf__i{display:grid;grid-template-columns:2fr 1fr 1.5fr;gap:4rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.sf .logo__w{color:var(--w)}.sf__ad{font-size:.8rem;color:var(--s50);line-height:1.8;margin-top:1.2rem}
+.sf__url{display:inline-block;margin-top:.8rem;font-family:var(--fm);font-size:.7rem;color:var(--g50)}
+.sf__nv ul{display:flex;flex-direction:column;gap:.6rem;margin-top:1.4rem}
+.sf__nv a{font-family:var(--fm);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--s50);transition:color var(--e)}.sf__nv a:hover{color:var(--w)}
+.sf__fl{font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g50);margin-bottom:.7rem}
+.sf__fi{font-size:.78rem;color:var(--s50);line-height:1.6}
+.sf__bt{padding:1.2rem 0}.sf__bt span{font-family:var(--fm);font-size:.63rem;letter-spacing:.06em;color:var(--s70)}
+@media(max-width:1024px){.ra,.ra.flip{grid-template-columns:1fr;direction:ltr}.ra__img .ip{min-height:280px}.pi__g{grid-template-columns:1fr;gap:2.5rem}.tm__g{grid-template-columns:repeat(3,1fr)}.sf__i{grid-template-columns:1fr 1fr}.ph__in{grid-template-columns:1fr}}
+@media(max-width:768px){.tm__g{grid-template-columns:repeat(2,1fr)}.al__g{grid-template-columns:1fr 1fr}.pc{grid-template-columns:1fr;gap:.7rem}.pc__th,.pc__ac{display:none}.sf__i{grid-template-columns:1fr}}
+@media(max-width:520px){.tm__g{grid-template-columns:1fr}.ra__txt{padding:2.5rem 1.5rem}}
+</style>
+</head>
+<body>
+
+<header class="sh"><div class="c sh__i">
+  <a href="#" class="logo"><span class="logo__w">ACUTE</span><span class="logo__s">Research Laboratories</span></a>
+  <nav><ul class="nav__l">
+    <li><a href="#" class="nav__a">Home</a></li>
+    <li><a href="#rp" class="nav__a act">Research</a></li>
+    <li><a href="#tp" class="nav__a">Team</a></li>
+    <li><a href="#pp" class="nav__a">Publications</a></li>
+    <li><a href="#" class="nav__a">Contact</a></li>
+  </ul></nav>
+</div></header>
+
+<!-- ═══ RESEARCH PAGE ═══ -->
+<div class="pdiv" id="rp">Page: Research</div>
+<div class="ph"><div class="c"><div class="ph__in">
+  <div><span class="sl">What we study</span><h1>Research</h1></div>
+  <p class="ph__sub">Six interconnected themes spanning vibrotactile perception, prosthetic feedback, sensory substitution, spatial audio, room acoustics, and human attention — each grounded in formal experiments and informing device design.</p>
+</div></div></div>
+
+<div class="ra"><div class="ra__img"><div class="ip ip--t"><span>Photo: Forearm sleeve with lit actuator array</span></div></div>
+<div class="ra__txt"><div class="ra__n">01</div><h2>Vibrotactile Perception</h2>
+<p>We map the perceptual limits of touch in response to vibration. Maximum sensitivity at the wrist peaks at 200 Hz on the inner surface; individual thresholds vary enormously, requiring personalised calibration.</p>
+<p>Presenting patterns <em>sequentially</em> yields <strong>93% recognition accuracy</strong>, versus 26% with simultaneous stimulation.</p>
+<div class="pl"><p class="pl__l">Key publications</p><ul>
+<li>Makarov et al. (2026). Amplitude vs. frequency. <em>Actuators</em>. <a href="https://doi.org/10.3390/act15050164">doi:10.3390/act15050164</a></li>
+<li>Yeganeh et al. (2024). Sequential vs. simultaneous stimulation. <em>Applied Sciences</em>. <a href="https://doi.org/10.3390/app14010043">doi:10.3390/app14010043</a></li>
+<li>Yeganeh et al. (2023). Frequency &amp; location on the forearm. <em>Actuators</em>. <a href="https://doi.org/10.3390/act12060224">doi:10.3390/act12060224</a></li>
+<li>Ævarsson et al. (2022). Vibrotactile thresholds at the wrist. <em>ACM TAP</em>. <a href="https://doi.org/10.1145/3529259">doi:10.1145/3529259</a></li>
+</ul></div></div></div>
+
+<div class="ra flip"><div class="ra__img"><div class="ip ip--t"><span>Photo: Prosthetic lower limb alongside forearm sleeve</span></div></div>
+<div class="ra__txt"><div class="ra__n">02</div><h2>Prosthetic Haptic Feedback</h2>
+<p>We design forearm-based vibrotactile systems that route signals from prosthetic sensors to a wearable sleeve, restoring a proxy sense of foot position for transfemoral amputees. Sequential patterns achieve <strong>72% recognition accuracy</strong> — nearly double the 43% with simultaneous patterns.</p>
+<p>Developed with <strong>Össur ehf.</strong> and <strong>Landspítali</strong>.</p>
+<div class="pl"><p class="pl__l">Key publications</p><ul>
+<li>Karimi et al. (2026). Forearm interface for transfemoral amputees. <em>Biomimetics</em>. <a href="https://doi.org/10.3390/biomimetics11020112">doi:10.3390/biomimetics11020112</a></li>
+<li>Karimi et al. (2025). Haptic systems review. <em>Bioengineering</em>. <a href="https://doi.org/10.3390/bioengineering12090989">doi:10.3390/bioengineering12090989</a></li>
+</ul></div></div></div>
+
+<div class="ra"><div class="ra__img"><div class="ip ip--t"><span>Photo: Cochlear implant user wearing vibrotactile sleeve</span></div></div>
+<div class="ra__txt"><div class="ra__n">03</div><h2>Sensory Substitution</h2>
+<p>We build vibrotactile and audio-haptic devices that translate visual or auditory information into touch, enabling impaired users to access information they would otherwise miss.</p>
+<p>Our cochlear implant project encodes musical rhythms into tactile patterns, reaching <strong>500,000+ CI users</strong> worldwide.</p>
+<div class="pl"><p class="pl__l">Key publications</p><ul>
+<li>Kristjánsson et al. (2026). Sensory substitution through vibrotactile stimulation. In <em>Mobility of Visually Impaired People</em>, Springer. <a href="https://doi.org/10.1007/978-3-031-91550-5_8">doi:10.1007/978-3-031-91550-5_8</a></li>
+</ul></div></div></div>
+
+<div class="ra flip"><div class="ra__img"><div class="ip ip--h"><span>Photo: 3D-printed silicone pinna on KEMAR in anechoic chamber</span></div></div>
+<div class="ra__txt"><div class="ra__n">04</div><h2>Spatial Audio &amp; HRTFs</h2>
+<p>We manufacture silicone pinna replicas with systematically varied geometry, altering one feature at a time to isolate its acoustic contribution. We also train machine learning models to predict HRTFs from ear photographs.</p>
+<p>Our open <strong>Viking HRTF Dataset v2</strong> — 1513 positions, 20 pinna replicas — is used by researchers worldwide.</p>
+<div class="pl"><p class="pl__l">Key publications</p><ul>
+<li>Sumner et al. (2025). Synthetic pinnæ for HRTF research. <em>Cogent Engineering</em>. <a href="https://doi.org/10.1080/23311916.2025.2536150">doi:10.1080/23311916.2025.2536150</a></li>
+<li>Fernández et al. (2023). HRTF prediction with ML. <em>Acoustics</em>. <a href="https://doi.org/10.3390/acoustics5010015">doi:10.3390/acoustics5010015</a></li>
+<li>Spagnol et al. (2020). Viking HRTF Dataset v2. <em>Zenodo</em>. <a href="https://doi.org/10.5281/zenodo.4160401">doi:10.5281/zenodo.4160401</a></li>
+</ul></div></div></div>
+
+<div class="ra"><div class="ra__img"><div class="ip ip--a"><span>Figure: Acoustic pressure field heat map — IJNME 2026 paper</span></div></div>
+<div class="ra__txt"><div class="ra__n">05</div><h2>Room Acoustics Simulation</h2>
+<p>Our structure-preserving model order reduction achieves a <strong>100× speedup</strong> in wave-based acoustic simulation while maintaining numerical stability at complex frequency-dependent boundaries.</p>
+<p>Developed with <strong>Treble Technologies</strong>. Funded by RANNÍS.</p>
+<div class="pl"><p class="pl__l">Key publications</p><ul>
+<li>Bonthu et al. (2026). Stable model reduction for room acoustics. <em>Int. J. Numerical Methods in Engineering</em>. <a href="https://doi.org/10.1002/nme.70295">doi:10.1002/nme.70295</a></li>
+</ul></div></div></div>
+
+<div class="ra flip"><div class="ra__img"><div class="ip ip--x"><span>Screenshot: Foraging task display from APP 2024 study</span></div></div>
+<div class="ra__txt"><div class="ra__n">06</div><h2>Attention, Foraging &amp; Haptic Illusions</h2>
+<p>We study how synchrony, cross-modal cues, and vibrotactile signals guide human multi-target search. Visual synchrony alone dramatically cuts foraging time; a wrist vibration can be nearly as effective as an auditory cue.</p>
+<p>We have also documented the <strong>haptic intensity order illusion</strong>: strong-then-weak vibration order makes the second stimulus feel displaced — overriding the actual direction.</p>
+<div class="pl"><p class="pl__l">Key publications</p><ul>
+<li>Makarov et al. (2024). Visual &amp; auditory synchrony in foraging. <em>Attention, Perception, &amp; Psychophysics</em>. <a href="https://doi.org/10.3758/s13414-023-02840-z">doi:10.3758/s13414-023-02840-z</a></li>
+<li>Hoffmann et al. (2019). The intensity order illusion. <em>Journal of Neurophysiology</em>. <a href="https://doi.org/10.1152/jn.00125.2019">doi:10.1152/jn.00125.2019</a></li>
+</ul></div></div></div>
+
+<!-- ═══ TEAM PAGE ═══ -->
+<div class="pdiv" id="tp">Page: Team</div>
+<div class="ph"><div class="c"><div class="ph__in">
+  <div><span class="sl">The people</span><h1>Our Team</h1></div>
+  <p class="ph__sub">Engineers, psychologists, and computer scientists united by a shared interest in how humans perceive the world — and how engineering can extend that perception.</p>
+</div></div></div>
+
+<section class="pi"><div class="c"><div class="pi__g">
+  <div class="pi__ph"><div class="ip ip--p" style="min-height:360px"><span>Photo: PI headshot</span></div></div>
+  <div>
+    <span class="sl">Principal Investigator</span>
+    <div class="pi__nm">Runar Unnthorsson</div>
+    <div class="pi__ro">Professor · Faculty of Industrial Engineering, Mechanical Engineering and Computer Science</div>
+    <div class="pi__bi">
+      <p>Runar Unnthorsson is a Professor at the University of Iceland specialising in experimental engineering and product development. His research spans acoustics, non-destructive testing, energy systems, and sensory substitution devices, with a focus on sustainable and impactful engineering solutions.</p>
+      <p>He has been actively participating in international and domestic projects for over 25 years and leads the ACUTE (ACoUstic and Tactile Engineering) group.</p>
+    </div>
+    <div class="pi__lk">
+      <a href="#" class="pi__btn">ORCID</a><a href="#" class="pi__btn">Google Scholar</a>
+      <a href="#" class="pi__btn">Email</a><a href="#" class="pi__btn">University Profile</a>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="tm"><div class="c">
+  <div class="tm__hd"><span class="sl">Researchers &amp; students</span><h2>Current members</h2></div>
+  <div class="tm__g">
+    <div class="mc"><div class="mc__ph"><div class="ip ip--p" style="min-height:190px"><span>Headshot</span></div></div><div class="mc__b"><div class="mc__nm">Árni Kristjánsson</div><div class="mc__ro">Co-investigator</div><div class="mc__bi">Professor of Psychology. Studies visual attention, eye movements, and multisensory perception.</div><div class="mc__tg"><span class="tg">Attention</span><span class="tg">Foraging</span><span class="tg">Haptics</span></div><div class="mc__lk"><a href="#">ORCID</a><a href="#">Scholar</a><a href="#">Email</a></div></div></div>
+    <div class="mc"><div class="mc__ph"><div class="ip ip--p" style="min-height:190px"><span>Headshot</span></div></div><div class="mc__b"><div class="mc__nm">Ivan Makarov</div><div class="mc__ro">Postdoctoral Researcher</div><div class="mc__bi">Studies cross-modal perception, visual foraging, and vibrotactile feedback in sensory substitution contexts.</div><div class="mc__tg"><span class="tg">Foraging</span><span class="tg">Vibrotactile</span></div><div class="mc__lk"><a href="#">ORCID</a><a href="#">Scholar</a><a href="#">Email</a></div></div></div>
+    <div class="mc"><div class="mc__ph"><div class="ip ip--p" style="min-height:190px"><span>Headshot</span></div></div><div class="mc__b"><div class="mc__nm">Nashmin Yeganeh</div><div class="mc__ro">PhD Candidate</div><div class="mc__bi">Focuses on vibrotactile pattern recognition, interstimulus intervals, and forearm display design.</div><div class="mc__tg"><span class="tg">Vibrotactile</span><span class="tg">Pattern recognition</span></div><div class="mc__lk"><a href="#">ORCID</a><a href="#">Scholar</a><a href="#">Email</a></div></div></div>
+    <div class="mc"><div class="mc__ph"><div class="ip ip--p" style="min-height:190px"><span>Headshot</span></div></div><div class="mc__b"><div class="mc__nm">Eric M. Sumner</div><div class="mc__ro">PhD Candidate</div><div class="mc__bi">Develops hybrid digital/physical HRTF data collection processes for training acoustic ML models.</div><div class="mc__tg"><span class="tg">HRTF</span><span class="tg">Spatial audio</span><span class="tg">ML</span></div><div class="mc__lk"><a href="#">ORCID</a><a href="#">Scholar</a><a href="#">Email</a></div></div></div>
+    <div class="mc"><div class="mc__ph"><div class="ip ip--p" style="min-height:190px"><span>Headshot</span></div></div><div class="mc__b"><div class="mc__nm">Mohammadmahdi Karimi</div><div class="mc__ro">PhD Candidate</div><div class="mc__bi">Designs and evaluates forearm-based vibrotactile interfaces for transfemoral prosthetic feedback.</div><div class="mc__tg"><span class="tg">Prosthetics</span><span class="tg">Haptics</span></div><div class="mc__lk"><a href="#">ORCID</a><a href="#">Scholar</a><a href="#">Email</a></div></div></div>
+    <div class="mc"><div class="mc__ph"><div class="ip ip--p" style="min-height:190px"><span>Headshot</span></div></div><div class="mc__b"><div class="mc__nm">Satish Bonthu</div><div class="mc__ro">PhD Candidate</div><div class="mc__bi">Works on model order reduction for time-domain room acoustics with structure-preserving formulations.</div><div class="mc__tg"><span class="tg">Room acoustics</span><span class="tg">Simulation</span></div><div class="mc__lk"><a href="#">ORCID</a><a href="#">Scholar</a><a href="#">Email</a></div></div></div>
+    <div class="mc"><div class="mc__ph"><div class="ip ip--p" style="min-height:190px"><span>Headshot</span></div></div><div class="mc__b"><div class="mc__nm">Morris Riedel</div><div class="mc__ro">Professor (Computer Science)</div><div class="mc__bi">Specialises in parallel HPC techniques for AI-driven acoustic and scientific applications.</div><div class="mc__tg"><span class="tg">HPC</span><span class="tg">Machine learning</span></div><div class="mc__lk"><a href="#">ORCID</a><a href="#">Scholar</a><a href="#">Email</a></div></div></div>
+    <div class="mc"><div class="mc__ph"><div class="ip ip--p" style="min-height:190px"><span>Headshot</span></div></div><div class="mc__b"><div class="mc__nm">Hafliði Ásgeirsson</div><div class="mc__ro">Lab Technician</div><div class="mc__bi">Resident technician at ACUTE, providing technical support for all experimental equipment.</div><div class="mc__tg"><span class="tg">Lab infrastructure</span></div><div class="mc__lk"><a href="#">Email</a></div></div></div>
+  </div>
+</div></section>
+
+<section class="alm"><div class="c">
+  <span class="sl">Past members</span>
+  <h2 style="margin-top:.4rem;font-size:1.5rem">Alumni</h2>
+  <div class="al__g">
+    <div class="al__i"><h4>Elvar Atli Ævarsson</h4><p>MSc · 2022</p></div>
+    <div class="al__i"><h4>Rebekka Hoffmann</h4><p>PhD · 2019</p></div>
+    <div class="al__i"><h4>Roberto Fernández Martínez</h4><p>Research Visitor · 2023</p></div>
+    <div class="al__i"><h4>Finnur Pind</h4><p>Postdoc → Treble Technologies</p></div>
+  </div>
+</div></section>
+
+<!-- ═══ PUBLICATIONS PAGE ═══ -->
+<div class="pdiv" id="pp">Page: Publications</div>
+<div class="ph"><div class="c"><div class="ph__in">
+  <div><span class="sl">Our work</span><h1>Publications</h1></div>
+  <p class="ph__sub">Peer-reviewed journal articles, conference papers, book chapters, and open datasets. Filter by research area or browse chronologically.</p>
+</div></div></div>
+
+<div class="pb"><div class="cn">
+  <div class="flt">
+    <button class="fb act">All</button>
+    <button class="fb area">Vibrotactile</button>
+    <button class="fb area">Prosthetics</button>
+    <button class="fb area">Sensory Substitution</button>
+    <button class="fb area">Spatial Audio</button>
+    <button class="fb area">Room Acoustics</button>
+    <button class="fb area">Attention &amp; Perception</button>
+  </div>
+
+  <div class="py"><div class="py__yr">2026</div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--t"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.3390/act15050164">Discriminating Vibrotactile Signals: The Relative Roles of Amplitude and Frequency</a></div><div class="pc__au">Makarov, I.; Kristjánsson, Á.; Unnthorsson, R.</div><div class="pc__ve">Actuators, 15, 164</div><div class="pc__tg"><span class="tg tg--v">Vibrotactile</span></div></div><div class="pc__ac"><a href="https://doi.org/10.3390/act15050164" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--t"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.3390/biomimetics11020112">Perceptual Design and Evaluation of a Forearm-Based Vibrotactile Interface for Transfemoral Prosthetic Feedback</a></div><div class="pc__au">Karimi, M.; Brynjólfsson, S.; Briem, K.; Kristjánsson, Á.; Unnthorsson, R.</div><div class="pc__ve">Biomimetics, 11, 112</div><div class="pc__tg"><span class="tg tg--p">Prosthetics</span><span class="tg tg--v">Vibrotactile</span></div></div><div class="pc__ac"><a href="https://doi.org/10.3390/biomimetics11020112" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--p"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.1007/978-3-031-91550-5_8">Sensory Substitution Through Vibrotactile Stimulation</a></div><div class="pc__au">Kristjánsson, Á.; Makarov, I.; Yeganeh, N.; Unnthorsson, R.</div><div class="pc__ve">In: Mobility of Visually Impaired People. Springer, Cham</div><div class="pc__tg"><span class="tg tg--s">Sensory Substitution</span></div></div><div class="pc__ac"><a href="https://doi.org/10.1007/978-3-031-91550-5_8" class="db">DOI</a></div></div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--a"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.1002/nme.70295">Stable Model Reduction for Time-Domain Room Acoustics: A Structure-Preserving Formulation for Complex Boundaries</a></div><div class="pc__au">Bonthu, S.; Llopis, H.S.; Thrastarson, S.; Pind, F.; Unnthorsson, R.</div><div class="pc__ve">International Journal for Numerical Methods in Engineering, 127, e70295</div><div class="pc__tg"><span class="tg tg--a">Room Acoustics</span></div></div><div class="pc__ac"><a href="https://doi.org/10.1002/nme.70295" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+  </div>
+
+  <div class="py"><div class="py__yr">2025</div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--h"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.1080/23311916.2025.2536150">Design and Manufacture of Synthetic Pinnæ for Studying Head-Related Transfer Functions (HRTFs)</a></div><div class="pc__au">Sumner, E.M.; Riedel, M.; Unnthorsson, R.</div><div class="pc__ve">Cogent Engineering, 12(1), 2536150</div><div class="pc__tg"><span class="tg tg--h">Spatial Audio</span></div></div><div class="pc__ac"><a href="https://doi.org/10.1080/23311916.2025.2536150" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--t"><span>fig</span></div></div><div><div class="pc__ti">Vibrotactile Pattern Recognition: Influence of Interstimulus Intervals</div><div class="pc__au">Yeganeh, N.; Makarov, I.; Kristjánsson, Á.; Unnthorsson, R.</div><div class="pc__ve">Virtual Reality &amp; Intelligent Hardware, 7(5), 483–500</div><div class="pc__tg"><span class="tg tg--v">Vibrotactile</span></div></div><div class="pc__ac"><a href="#" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--t"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.3390/bioengineering12090989">Haptic Feedback Systems for Lower-Limb Prosthetic Applications: A Review</a></div><div class="pc__au">Karimi, M. et al.</div><div class="pc__ve">Bioengineering, 12(9), 989</div><div class="pc__tg"><span class="tg tg--p">Prosthetics</span></div></div><div class="pc__ac"><a href="https://doi.org/10.3390/bioengineering12090989" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+  </div>
+
+  <div class="py"><div class="py__yr">2024</div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--x"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.3758/s13414-023-02840-z">The Effects of Visual and Auditory Synchrony on Human Foraging</a></div><div class="pc__au">Makarov, I.; Unnthorsson, R.; Kristjánsson, Á.; Thornton, I.M.</div><div class="pc__ve">Attention, Perception, &amp; Psychophysics, 86(3), 909–930</div><div class="pc__tg"><span class="tg tg--x">Attention &amp; Perception</span></div></div><div class="pc__ac"><a href="https://doi.org/10.3758/s13414-023-02840-z" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--t"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.3390/app14010043">Discrimination Accuracy of Sequential Versus Simultaneous Vibrotactile Stimulation on the Forearm</a></div><div class="pc__au">Yeganeh, N.; Makarov, I.; Kristjánsson, Á.; Unnthorsson, R.</div><div class="pc__ve">Applied Sciences, 14(1), 43</div><div class="pc__tg"><span class="tg tg--v">Vibrotactile</span></div></div><div class="pc__ac"><a href="https://doi.org/10.3390/app14010043" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+  </div>
+
+  <div class="py"><div class="py__yr">2023</div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--h"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.3390/acoustics5010015">Prediction of Head-Related Transfer Functions Using Machine Learning Approaches</a></div><div class="pc__au">Fernández Martínez, R.; Jimbert, P.; Sumner, E.M.; Riedel, M.; Unnthorsson, R.</div><div class="pc__ve">Acoustics, 5(1), 254–267</div><div class="pc__tg"><span class="tg tg--h">Spatial Audio</span></div></div><div class="pc__ac"><a href="https://doi.org/10.3390/acoustics5010015" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--t"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.3390/act12060224">Effects of Stimulus Frequency and Location on Vibrotactile Discrimination Performance</a></div><div class="pc__au">Yeganeh, N.; Makarov, I.; Unnthorsson, R.; Kristjánsson, Á.</div><div class="pc__ve">Actuators, 12(6), 224</div><div class="pc__tg"><span class="tg tg--v">Vibrotactile</span></div></div><div class="pc__ac"><a href="https://doi.org/10.3390/act12060224" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+  </div>
+
+  <div class="py"><div class="py__yr">2022</div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--t"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.1145/3529259">Vibrotactile Threshold Measurements at the Wrist Using Parallel Vibration Actuators</a></div><div class="pc__au">Ævarsson, E.A.; Ásgeirsdóttir, T.; Pind, F.; Kristjánsson, Á.; Unnthorsson, R.</div><div class="pc__ve">ACM Transactions on Applied Perception, 19(3), Article 10</div><div class="pc__tg"><span class="tg tg--v">Vibrotactile</span><span class="tg tg--s">Sensory Substitution</span></div></div><div class="pc__ac"><a href="https://doi.org/10.1145/3529259" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+  </div>
+
+  <div class="py"><div class="py__yr">2019</div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--x"><span>fig</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.1152/jn.00125.2019">The Intensity Order Illusion: Temporal Order of Different Vibrotactile Intensity Causes Systematic Localization Errors</a></div><div class="pc__au">Hoffmann, R.; Brinkhuis, M.A.B.; Unnthorsson, R.; Kristjánsson, Á.</div><div class="pc__ve">Journal of Neurophysiology, 122(4), 1810–1820</div><div class="pc__tg"><span class="tg tg--x">Attention &amp; Perception</span><span class="tg tg--v">Vibrotactile</span></div></div><div class="pc__ac"><a href="https://doi.org/10.1152/jn.00125.2019" class="db">DOI</a><a href="#" class="pdfb">PDF</a></div></div>
+  </div>
+
+  <div class="py"><div class="py__yr" style="font-size:1.2rem;color:var(--s40)">Dataset</div>
+    <div class="pc"><div class="pc__th"><div class="ip ip--h"><span>data</span></div></div><div><div class="pc__ti"><a href="https://doi.org/10.5281/zenodo.4160401">The Viking HRTF Dataset v2</a></div><div class="pc__au">Spagnol, S.; Miccini, R.; Unnthórsson, R.</div><div class="pc__ve">Zenodo, 2020 · Full-sphere HRTFs for 20 pinna replicas, 1513 positions</div><div class="pc__tg"><span class="tg tg--h">Spatial Audio</span><span class="tg">Open Data</span></div></div><div class="pc__ac"><a href="https://doi.org/10.5281/zenodo.4160401" class="db">Dataset →</a></div></div>
+  </div>
+</div></div>
+
+<!-- FOOTER -->
+<footer class="sf"><div class="c sf__i">
+  <div>
+    <a href="#" class="logo"><span class="logo__w">ACUTE</span><span class="logo__s">Research Laboratories</span></a>
+    <p class="sf__ad">Faculty of Industrial Engineering,<br>Mechanical Engineering and Computer Science<br>University of Iceland · Hjardarhagi 2–6, 107 Reykjavík</p>
+    <a href="https://acute.hi.is" class="sf__url">acute.hi.is</a>
+  </div>
+  <nav class="sf__nv"><ul><li><a href="#">Research</a></li><li><a href="#">Team</a></li><li><a href="#">Publications</a></li><li><a href="#">Contact</a></li></ul></nav>
+  <div>
+    <p class="sf__fl">Funded by</p>
+    <p class="sf__fi">RANNÍS — Icelandic Research Fund</p>
+    <p class="sf__fi">NordForsk · NordicSMC</p>
+    <p class="sf__fi">EU Horizon 2020 RAISE</p>
+    <p class="sf__fi">EUROCC2</p>
+  </div>
+</div>
+<div class="sf__bt"><div class="c"><span>© 2026 ACUTE Research Laboratories, University of Iceland</span></div></div>
+</footer>
+
+<script>
+document.querySelectorAll('.fb').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fb').forEach(b => b.classList.remove('act'));
+    btn.classList.add('act');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}ACUTE Research Laboratories</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}ACoUstic and Tactile Engineering — Research Laboratory, University of Iceland{% endif %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+
+  {% include header.html %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script>
+  /* ── Mobile nav toggle ───────────────────────────────── */
+  (function () {
+    var btn = document.querySelector('.nav-toggle');
+    var nav = document.querySelector('.site-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    nav.querySelectorAll('.site-nav__link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('is-open');
+        btn.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* ── Hero slideshow ──────────────────────────────────── */
+  (function () {
+    var hero = document.getElementById('hero-slideshow');
+    if (!hero) return;
+    var slides = hero.querySelectorAll('.hero__slide');
+    if (slides.length < 2) return;
+    var idx = 0;
+    setInterval(function () {
+      slides[idx].classList.remove('is-active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('is-active');
+      if (slides[idx].classList.contains('hero__slide--logo')) {
+        hero.classList.add('hero--logo-active');
+      } else {
+        hero.classList.remove('hero--logo-active');
+      }
+    }, 5000);
+  })();
+  </script>
+
+  <script>
+  (function () {
+    var drawer = document.getElementById('bio-drawer');
+    if (!drawer) return;
+    var cards = document.querySelectorAll('.person-card[data-bio]');
+    var photo = drawer.querySelector('.bio-drawer__photo');
+    var name  = drawer.querySelector('.bio-drawer__name');
+    var role  = drawer.querySelector('.bio-drawer__role');
+    var text  = drawer.querySelector('.bio-drawer__text');
+    var more  = drawer.querySelector('.bio-drawer__more');
+    var close = drawer.querySelector('.bio-drawer__close');
+    var active = null;
+
+    function openDrawer(card) {
+      if (active) active.classList.remove('is-active');
+      active = card;
+      card.classList.add('is-active');
+      photo.src = card.querySelector('img').src;
+      photo.alt = card.querySelector('.person-card__name').textContent;
+      name.textContent  = card.querySelector('.person-card__name').textContent;
+      role.textContent  = card.querySelector('.person-card__role').textContent;
+      text.textContent  = card.dataset.bio;
+      if (more && card.dataset.url) {
+        more.href = card.dataset.url;
+        more.style.display = '';
+      } else if (more) {
+        more.style.display = 'none';
+      }
+      /* Move drawer right after the grid so it appears below all cards */
+      card.closest('.team__grid').after(drawer);
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      setTimeout(function () {
+        drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 150);
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      if (active) active.classList.remove('is-active');
+      active = null;
+      setTimeout(function () { drawer.hidden = true; }, 350);
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return; /* don't hijack link clicks */
+        if (active === card) { closeDrawer(); return; }
+        openDrawer(card);
+      });
+    });
+    close.addEventListener('click', closeDrawer);
+  })();
+  </script>
+
+</body>
+</html>

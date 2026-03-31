@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<section class="page-hero">
+  <div class="page-hero__inner">
+    <p class="page-hero__eyebrow">Team</p>
+    <h1 class="page-hero__title">{{ page.title }}</h1>
+    {% if page.role %}<p class="page-hero__sub">{{ page.role }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="member-profile">
+  <div class="container">
+    <div class="member-profile__grid">
+      {% if page.photo %}
+      <div class="member-profile__photo-wrap">
+        <img src="{{ page.photo | relative_url }}" alt="{{ page.title }}" class="member-profile__photo">
+      </div>
+      {% endif %}
+      <div class="member-profile__body">
+        {{ content }}
+        {% if page.email or page.profile %}
+        <div class="member-profile__links">
+          {% if page.email %}<a href="mailto:{{ page.email }}">{{ page.email }}</a>{% endif %}
+          {% if page.profile %}<a href="{{ page.profile }}" target="_blank">University profile</a>{% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <a href="{{ '/team/' | relative_url }}" class="member-profile__back">&larr; Back to team</a>
+  </div>
+</section>
