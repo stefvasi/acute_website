@@ -4,3 +4,9 @@ _site/
 .sass-cache/
 .DS_Store
 vendor/
+.playwright-mcp/
+Mohammad_content/
+published_papers/
+number_facts.md
+__pycache__/
+_cite/.cache/

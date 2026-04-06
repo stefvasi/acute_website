@@ -1,0 +1,53 @@
+# Sources for the _cite system — add DOIs here, run `cd _cite && python cite.py` to generate citations.yaml
+# The publications.yml file is the manually curated version used by the site templates.
+# This file is for future automated citation generation via Manubot.
+
+# --- Vibrotactile & haptics ---
+- id: doi:10.3390/act15030164            # Makarov 2026 Actuators (amplitude vs frequency)
+
+- id: doi:10.3390/biomimetics11020112     # Karimi 2026 Biomimetics (forearm prosthetic interface)
+  image: https://pub.mdpi-res.com/biomimetics/biomimetics-11-00112/article_deploy/html/images/biomimetics-11-00112-g001.png
+
+- id: doi:10.3390/bioengineering12090989  # Karimi 2025 Bioengineering (haptic systems review)
+  image: https://pub.mdpi-res.com/bioengineering/bioengineering-12-00989/article_deploy/html/images/bioengineering-12-00989-g001.png
+
+- id: doi:10.1016/j.vrih.2025.06.001     # Yeganeh 2025 VRIH (interstimulus intervals)
+
+- id: doi:10.3390/app14010043             # Yeganeh 2024 Appl.Sci (sequential vs simultaneous)
+  image: https://pub.mdpi-res.com/applsci/applsci-14-00043/article_deploy/html/images/applsci-14-00043-g001.png
+
+- id: doi:10.3390/act12060224             # Yeganeh 2023 Actuators (frequency & location)
+  image: https://pub.mdpi-res.com/actuators/actuators-12-00224/article_deploy/html/images/actuators-12-00224-g001.png
+
+- id: doi:10.1145/3529259                 # Ævarsson 2022 ACM TAP (wrist thresholds)
+
+- id: doi:10.1115/imece2022-95591         # Yeganeh 2022 IMECE (cochlear implant music sleeve)
+
+# --- Sensory substitution ---
+- id: doi:10.1007/978-3-031-91550-5_8     # Kristjánsson 2026 Springer (sensory substitution chapter)
+- id: doi:10.1007/978-1-0716-3068-6_14    # Brooks 2023 Springer (visual info via haptics)
+
+# --- Acoustics & HRTF ---
+- id: doi:10.1002/nme.70295               # Bonthu 2026 IJNME (room acoustics model reduction)
+
+- id: doi:10.1080/23311916.2025.2536150   # Sumner 2025 Cogent Engineering (synthetic pinnae)
+
+- id: doi:10.3390/acoustics5010015        # Fernández 2023 Acoustics (HRTF machine learning)
+  image: https://pub.mdpi-res.com/acoustics/acoustics-05-00015/article_deploy/html/images/acoustics-05-00015-g001.png
+
+- id: doi:10.1115/IMECE2022-97044         # Karlberg 2022 IMECE (echolocation BRAS)
+
+- id: doi:10.5281/zenodo.6797854          # Sumner 2022 SMC (MLP sound localization)
+
+- id: doi:10.1109/TASLP.2021.3101928      # Spagnol 2021 IEEE (spectral notches pinna)
+
+- id: doi:10.5281/zenodo.4160401          # Spagnol 2020 Viking HRTF Dataset v2
+
+# --- Perception, foraging & illusions ---
+- id: doi:10.1163/22134808-bja10135       # Makarov 2024 Multisensory (cross-modal foraging)
+
+- id: doi:10.3758/s13414-023-02840-z      # Makarov 2024 APP (visual/auditory synchrony foraging)
+
+- id: doi:10.1145/3626237                 # Makarov 2023 ACM TAP (intensity order illusion amplitude)
+
+- id: doi:10.1152/jn.00125.2019           # Hoffmann 2019 J.Neurophysiol (intensity order illusion)

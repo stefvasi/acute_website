@@ -1,0 +1,48 @@
+# Partners & funders — single source of truth
+
+industry:
+  - name: "Össur ehf."
+    url: https://www.ossur.com
+    logo: /images/partners/ossur.png
+    alt: "Össur"
+
+  - name: Treble Technologies
+    url: https://www.treble.tech
+    logo: /images/partners/treble.png
+    alt: Treble Technologies
+
+  - name: "Landspítali — National University Hospital"
+    url: https://www.landspitali.is
+    logo: /images/partners/landspitali.png
+    alt: "Landspítali"
+
+funders:
+  - name: "RANNÍS — Icelandic Research Fund"
+    url: https://www.rannis.is
+    logo: /images/partners/rannis.png
+    alt: "RANNÍS"
+
+  - name: University of Iceland
+    url: https://www.hi.is
+    logo: /images/partners/hi.png
+    alt: University of Iceland
+
+  - name: NordForsk
+    url: https://www.nordforsk.org
+    logo: /images/partners/nordforsk.jpeg
+    alt: NordForsk
+
+  - name: EU Horizon 2020
+    url: https://ec.europa.eu/programmes/horizon2020
+    logo: /images/partners/horizon.png
+    alt: EU Horizon 2020
+
+  - name: EUROCC2
+    url: https://www.eurocc-access.eu
+    logo: /images/partners/eurocc2.png
+    alt: EUROCC2
+
+  - name: EDIH Iceland
+    url: https://www.edihiceland.is
+    logo: /images/partners/edih_iceland.png
+    alt: EDIH Iceland

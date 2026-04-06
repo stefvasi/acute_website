@@ -1,0 +1,107 @@
+# Research areas — single source of truth
+# Used by research/index.md (full view) and index.md (highlight cards)
+# Order determines display order and numbering (01, 02, ...)
+
+- title: Vibrotactile Perception
+  slug: vibrotactile-perception
+  image: /images/lab_equipment.jpg
+  image_alt: Forearm sleeve with vibrotactile actuator array
+  highlight_image: /images/sensory_substitution.jpg
+  summary: Mapping the frequency, amplitude, and spatial limits of touch on the forearm and wrist.
+  description:
+    - >-
+      We map the perceptual limits of touch in response to vibration. Maximum sensitivity at the wrist peaks at 200 Hz on the inner surface; individual thresholds vary enormously, requiring personalised calibration.
+    - >-
+      Presenting patterns <em>sequentially</em> yields <strong>93% recognition accuracy</strong>, versus 26% with simultaneous stimulation.
+  pubs:
+    - text: "Yeganeh et al. (2024). Sequential vs. simultaneous stimulation. <em>Applied Sciences</em>."
+      doi: 10.3390/app14010043
+    - text: "Yeganeh et al. (2023). Frequency &amp; location on the forearm. <em>Actuators</em>."
+      doi: 10.3390/act12060224
+    - text: "Ævarsson et al. (2022). Vibrotactile thresholds at the wrist. <em>ACM TAP</em>."
+      doi: 10.1145/3529259
+
+- title: Prosthetic Haptic Feedback
+  slug: prosthetic-haptic-feedback
+  image: /images/mannequin.jpg
+  image_alt: Prosthetic lower limb alongside forearm vibrotactile sleeve
+  highlight_image: /images/mannequin.jpg
+  summary: Vibrotactile sleeves that restore proprioception for transfemoral amputees.
+  description:
+    - >-
+      We design forearm-based vibrotactile systems that route signals from prosthetic sensors to a wearable sleeve, restoring a proxy sense of foot position for transfemoral amputees. Sequential patterns achieve <strong>72% recognition accuracy</strong> — nearly double the 43% with simultaneous patterns.
+    - >-
+      Developed with <strong>Össur ehf.</strong> and <strong>Landspítali</strong>.
+  pubs:
+    - text: "Karimi et al. (2026). Forearm interface for transfemoral amputees. <em>Biomimetics</em>."
+      doi: 10.3390/biomimetics11020112
+    - text: "Karimi et al. (2025). Haptic systems review. <em>Bioengineering</em>."
+      doi: 10.3390/bioengineering12090989
+
+- title: Sensory Substitution
+  slug: sensory-substitution
+  image: /images/sensory_substitution.jpg
+  image_alt: Cochlear implant user wearing vibrotactile sleeve
+  highlight_image: /images/lab_equipment.jpg
+  summary: Devices that translate sound and vision into touch for visually and hearing-impaired users.
+  description:
+    - >-
+      We build vibrotactile and audio-haptic devices that translate visual or auditory information into touch, enabling impaired users to access information they would otherwise miss.
+    - >-
+      Our cochlear implant project encodes musical rhythms into tactile patterns, reaching <strong>500,000+ CI users</strong> worldwide.
+  pubs:
+    - text: "Kristjánsson et al. (2026). Sensory substitution through vibrotactile stimulation. In <em>Mobility of Visually Impaired People</em>, Springer."
+      doi: 10.1007/978-3-031-91550-5_8
+    - text: "Yeganeh et al. (2022). Vibrotactile sleeve for cochlear implant users. <em>ASME IMECE</em>."
+      doi: 10.1115/imece2022-95591
+
+- title: "Spatial Audio & HRTFs"
+  slug: spatial-audio-hrtfs
+  image: /images/kemar.jpg
+  image_alt: 3D-printed silicone pinna on KEMAR in anechoic chamber
+  highlight_image: /images/kemar.jpg
+  summary: Synthetic pinna models and machine learning to personalise 3D sound.
+  description:
+    - >-
+      We manufacture silicone pinna replicas with systematically varied geometry, altering one feature at a time to isolate its acoustic contribution. We also train machine learning models to predict HRTFs from ear photographs.
+    - >-
+      Our open <strong>Viking HRTF Dataset v2</strong> — 1513 positions, 20 pinna replicas — is used by researchers worldwide.
+  pubs:
+    - text: "Sumner et al. (2025). Synthetic pinnæ for HRTF research. <em>Cogent Engineering</em>."
+      doi: 10.1080/23311916.2025.2536150
+    - text: "Fernández et al. (2023). HRTF prediction with ML. <em>Acoustics</em>."
+      doi: 10.3390/acoustics5010015
+    - text: "Spagnol et al. (2020). Viking HRTF Dataset v2. <em>Zenodo</em>."
+      doi: 10.5281/zenodo.4160401
+
+- title: Room Acoustics Simulation
+  slug: room-acoustics-simulation
+  image: /images/room_acoustics.jpg
+  image_alt: Acoustic pressure field simulation heat map
+  highlight_image: /images/room_acoustics.jpg
+  summary: Structure-preserving model reduction achieving 100× speedup in wave simulation.
+  description:
+    - >-
+      Our structure-preserving model order reduction achieves a <strong>100× speedup</strong> in wave-based acoustic simulation while maintaining numerical stability at complex frequency-dependent boundaries.
+    - >-
+      Developed with <strong>Treble Technologies</strong>. Funded by RANNÍS.
+  pubs:
+    - text: "Bonthu et al. (2026). Stable model reduction for room acoustics. <em>Int. J. Numerical Methods in Engineering</em>."
+      doi: 10.1002/nme.70295
+
+- title: "Attention, Foraging & Haptic Illusions"
+  slug: attention-foraging-haptic-illusions
+  image: /images/scan_pattern.png
+  image_alt: Foraging task display from attention study
+  highlight_image: /images/scan_pattern.png
+  summary: Cross-modal foraging, visual synchrony effects, and haptic illusions.
+  description:
+    - >-
+      We study how synchrony, cross-modal cues, and vibrotactile signals guide human multi-target search. Visual synchrony alone dramatically cuts foraging time; a wrist vibration can be nearly as effective as an auditory cue.
+    - >-
+      We have also documented the <strong>haptic intensity order illusion</strong>: strong-then-weak vibration order makes the second stimulus feel displaced — overriding the actual direction.
+  pubs:
+    - text: "Makarov et al. (2024). Visual &amp; auditory synchrony in foraging. <em>Attention, Perception, &amp; Psychophysics</em>."
+      doi: 10.3758/s13414-023-02840-z
+    - text: "Hoffmann et al. (2019). The intensity order illusion. <em>Journal of Neurophysiology</em>."
+      doi: 10.1152/jn.00125.2019

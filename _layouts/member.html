@@ -23,7 +23,7 @@ layout: default
         {% if page.email or page.profile %}
         <div class="member-profile__links">
           {% if page.email %}<a href="mailto:{{ page.email }}">{{ page.email }}</a>{% endif %}
-          {% if page.profile %}<a href="{{ page.profile }}" target="_blank">University profile</a>{% endif %}
+          {% if page.profile %}<a href="{{ page.profile }}" target="_blank" rel="noopener">University profile</a>{% endif %}
         </div>
         {% endif %}
       </div>

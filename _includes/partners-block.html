@@ -1,0 +1,22 @@
+<div class="partners__groups">
+  <div>
+    <div class="partners__group-label">Industry partners</div>
+    <div class="partners__row">
+      {% for p in site.data.partners.industry %}
+      <a href="{{ p.url }}" class="partner-logo" target="_blank" rel="noopener" title="{{ p.name }}">
+        <img src="{{ p.logo | relative_url }}" alt="{{ p.alt }}">
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div>
+    <div class="partners__group-label">Funders</div>
+    <div class="partners__row">
+      {% for p in site.data.partners.funders %}
+      <a href="{{ p.url }}" class="partner-logo" target="_blank" rel="noopener" title="{{ p.name }}">
+        <img src="{{ p.logo | relative_url }}" alt="{{ p.alt }}">
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+# Stats ticker items — displayed as a seamless scrolling ribbon on the homepage
+# The Liquid template duplicates the set automatically for the CSS loop
+
+- number: "93%"
+  label: Pattern recognition with sequential vibrotactile stimulation
+- number: "100×"
+  label: Speedup in room acoustics via model-order reduction
+- number: "1,513"
+  label: Spatial positions in the Viking HRTF Dataset
+- number: "48"
+  label: Individual HRTFs used to train sound-localization AI
+- number: "~20°"
+  label: "Localization error — matching human hearing"
+- number: "3.3%"
+  label: "Pinna notch prediction error — half of prior methods"
+- number: "72.4%"
+  label: Accuracy for prosthetic joint feedback (sequential cues)
+- number: "2×"
+  label: Faster foraging with cross-modal synchrony cues
+- number: "34 dB"
+  label: Individual variation in wrist vibrotactile thresholds
+- number: "0.25 mm"
+  label: Scanner precision for synthetic pinna replication
+- number: "3.54%"
+  label: ML prediction error for personalized HRTFs
+- number: "95%"
+  label: Vibrotactile accuracy near wrist & elbow anchors

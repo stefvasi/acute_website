@@ -20,13 +20,22 @@ _layouts/default.html     — base layout (head, nav, main, footer)
 _layouts/member.html      — individual team member profile page (extends default)
 _includes/header.html     — sticky nav with hamburger menu at ≤768px
 _includes/footer.html     — dark footer
+_includes/partners-block.html — shared partners & funders logos (used on index + contact)
 assets/css/main.css       — entire design system (single file, plain CSS — not Sass)
-index.md                  — home page (hero slideshow, about, highlights, stats, gallery, team, partners)
-research/index.md         — alternating 50/50 image/text splits for 6 research areas
-team/index.md             — team member grid (cards link to individual profiles)
-team/<slug>/index.md      — 11 individual member profile pages
-publications/index.md     — chronological publication list with DOI links
-contact/index.md          — contact info, map link, partners & funders with logos
+_team/<slug>.md           — team member collection (frontmatter + bio content → generates /team/<slug>/)
+_data/research.yml        — 6 research areas (title, descriptions, images, key publications)
+_data/publications.yml    — all publications (title, authors, venue, year, doi, topic, summary, image)
+_data/partners.yml        — industry partners + funders (name, url, logo, alt)
+_data/stats.yml           — stats ticker items (number + label)
+_data/gallery.yml         — homepage gallery photos (image, alt, caption)
+_data/features.yml        — homepage featured research rows (label, title, text, doi, image)
+_data/sources.yaml        — DOI list for _cite/ automated citation generation
+_cite/                    — Manubot-based citation generator (cite.py, util.py, plugins/)
+index.md                  — home page (all sections data-driven via Liquid loops)
+research/index.md         — research areas (data-driven from _data/research.yml)
+team/index.md             — team member grid (data-driven from _team/ collection)
+publications/index.md     — publication list with topic filters (data-driven from _data/publications.yml)
+contact/index.md          — contact info, map link, partners & funders
 images/                   — lab photos, SVGs, partners/, team/
 ```
 
@@ -61,19 +70,33 @@ Key layout patterns:
 
 Hamburger menu at ≤768px. Toggle button in `_includes/header.html`, JS handler in `_layouts/default.html`. Slide-in panel from right.
 
-## Team Member Pages
+## Data-Driven Content
 
-Each member has a page at `team/<slug>/index.md` using `layout: member`. Frontmatter fields:
-- `title` (required) — Full name
-- `role` (required) — Role title
-- `photo` (required) — Path to image, e.g. `/images/team/filename.jpg`
-- `email` (optional) — Email address
-- `profile` (optional) — External profile URL
+### Team (`_team/` collection)
+
+Jekyll collection — each file is a single source of truth for one member. Frontmatter: `layout: member`, `title`, `role`, `photo`, optional `email`/`profile`, `status` (current/past), `order` (display order). Page content = full bio. The first paragraph is auto-extracted as `excerpt` for the homepage bio drawer. URLs generated at `/team/<slug>/`.
 
 To add a new member:
-1. Create `team/<slug>/index.md` with the above frontmatter
+1. Create `_team/<slug>.md` with frontmatter + bio content
 2. Add photo to `images/team/`
-3. Add a `.person-card` entry in both `index.md` (homepage, with `data-bio` and `data-url`) and `team/index.md` (team page, wrapped in `<a>` tag)
+
+To move a member to past: change `status: past` and set `order: 100+`.
+
+### Publications (`_data/publications.yml`)
+
+All publications with: `title`, `authors`, `venue`, `year`, `doi`, `topic` (haptics/acoustics/perception), `summary`, optional `image`. Ordered newest first. `publications/index.md` loops over this file and renders topic filter buttons + JS.
+
+To add a publication:
+1. Add entry to `_data/publications.yml`
+2. Optionally add DOI to `_data/sources.yaml` (for future Manubot integration)
+
+### Partners (`_data/partners.yml`)
+
+Industry partners and funders. Rendered by `_includes/partners-block.html`, which is included on both homepage and contact page.
+
+### Citation System (`_cite/`)
+
+Ported from the old website. Uses Manubot to generate citations from DOIs in `_data/sources.yaml`. Run `cd _cite && python cite.py` to regenerate. Not yet integrated into the build pipeline.
 
 ## Deployment (GitHub Actions → GitHub Pages)
 
@@ -88,10 +111,9 @@ Every link in templates uses `| relative_url` — this is correct and must be pr
 ## Known Issues & Pending Work
 
 - **Images are oversized** (21 MB total). 8 files over 1 MB each. Must compress before launch.
-- **5 team members need real bios and photos:** Eric Sumner, Satish Bonthu, Haflidi Asgeirsson, Stefanos Vasilakis, Emma Shannon.
+- **3 team members need real bios and photos:** Satish Bonthu, Stefanos Vasilakis, Emma Shannon.
 - **No favicon, robots.txt, sitemap, or 404 page yet.**
 - **No Open Graph meta tags** — social sharing has no preview.
 - **Publications page loads thumbnails from external URLs** (pub.mdpi-res.com) — fragile.
-- **No `rel="noopener"` on `target="_blank"` links.**
 - **Not yet deployed** — all changes are local, no commits/pushes made.
 - Full go-live checklist tracked in Notion: "Website Go-Live Checklist" under the "Lab Website Development" task.
